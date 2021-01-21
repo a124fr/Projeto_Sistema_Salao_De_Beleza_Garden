@@ -1,7 +1,7 @@
 <%-- 
     Document   : login
     Created on : 21/12/2020, 23:28:54
-    Author     : francisco
+    Author     : Grupo 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 17/12/2020, 19:53:52
-    Author     : francisco
+    Author     : Grupo 2
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

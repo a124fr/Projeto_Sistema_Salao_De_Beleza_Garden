@@ -1,7 +1,7 @@
 <%-- 
     Document   : listar_menu
     Created on : 17/12/2020, 22:17:18
-    Author     : francisco
+    Author     : Grupo 2
 --%>
 <%@page import="model.MenuDAO"%>
 <%@page import="model.Menu"%>

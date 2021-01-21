@@ -1,7 +1,7 @@
 <%-- 
     Document   : form_inserir_usuario
     Created on : 17/12/2020, 18:59:11
-    Author     : francisco
+    Author     : Grupo 2
 --%>
 
 <%@page import="model.PerfilDAO"%>
@@ -26,7 +26,7 @@
     <body>
         <%@include  file="banner.jsp" %>
         <h1>Novo Usuário</h1>
-        <form name="novo_usuario" method="POST" action="inserir_usuario.do">
+        <form name="novo_usuario" method="POST" action="inserir_funcionario.do">
             Nome:<input type="text" name="nome" required /><br/>
             
             Login:<input type="text" name="login" required /><br/> 
@@ -44,7 +44,7 @@
                         %>                        
                     </select><br/>
             
-            <input type="submit" value="Salvar" /> | <a href="listar_usuario.jsp">Voltar</a>
+            <input type="submit" value="Salvar" /> | <a href="listar_funcionario.jsp">Voltar</a>
         </form>
     </body>
 </html>

@@ -10,7 +10,7 @@ public class DataBaseDAO {
         Class.forName("com.mysql.jdbc.Driver");
         String user = "root";
         String pass = "";
-        String url = "jdbc:mysql://localhost:3306/SistemaSalaoBelezaGarden";
+        String url = "jdbc:mysql://localhost:3306/salaodebelezagarden";
         conn = DriverManager.getConnection(url, user, pass);
     }
     

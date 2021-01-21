@@ -1,7 +1,7 @@
 <%-- 
     Document   : form_inserir_menu.jsp
     Created on : 20/12/2020, 21:58:17
-    Author     : francisco
+    Author     : Grupo 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

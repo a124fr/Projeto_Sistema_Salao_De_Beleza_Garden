@@ -8,6 +8,46 @@
         <servlet-name>InserirPerfil</servlet-name>
         <servlet-class>controller.InserirPerfil</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValidaLogin</servlet-name>
+        <servlet-class>controller.ValidaLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirPerfil</servlet-name>
+        <servlet-class>controller.ExcluirPerfil</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarPerfil</servlet-name>
+        <servlet-class>controller.AlterarPerfil</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GerenciarMenuPerfil</servlet-name>
+        <servlet-class>controller.GerenciarMenuPerfil</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InserirMenu</servlet-name>
+        <servlet-class>controller.InserirMenu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarMenu</servlet-name>
+        <servlet-class>controller.AlterarMenu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirMenu</servlet-name>
+        <servlet-class>controller.ExcluirMenu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GerenciarSituacaoFuncionario</servlet-name>
+        <servlet-class>controller.GerenciarSituacaoFuncionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InserirFuncionario</servlet-name>
+        <servlet-class>controller.InserirFuncionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirFuncionario</servlet-name>
+        <servlet-class>controller.ExcluirFuncionario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Teste</servlet-name>
         <url-pattern>/Teste</url-pattern>
@@ -15,6 +55,46 @@
     <servlet-mapping>
         <servlet-name>InserirPerfil</servlet-name>
         <url-pattern>/inserir_perfil.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidaLogin</servlet-name>
+        <url-pattern>/valida_login.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirPerfil</servlet-name>
+        <url-pattern>/excluir_perfil.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarPerfil</servlet-name>
+        <url-pattern>/alterar_perfil.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GerenciarMenuPerfil</servlet-name>
+        <url-pattern>/gerenciar_menu_perfil.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirMenu</servlet-name>
+        <url-pattern>/inserir_menu.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarMenu</servlet-name>
+        <url-pattern>/alterar_menu.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirMenu</servlet-name>
+        <url-pattern>/excluir_menu.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GerenciarSituacaoFuncionario</servlet-name>
+        <url-pattern>/gerenciar_situacao_funcionario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirFuncionario</servlet-name>
+        <url-pattern>/inserir_funcionario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirFuncionario</servlet-name>
+        <url-pattern>/excluir_funcionario.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

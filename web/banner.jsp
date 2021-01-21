@@ -1,14 +1,14 @@
 <%-- 
     Document   : banner
     Created on : 21/12/2020, 23:58:10
-    Author     : francisco
+    Author     : Grupo 2
 --%>
 
 <%@page import="model.Menu"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Usuario"%>
+<%@page import="model.Funcionario"%>
 <%
-    Usuario uLogado = new Usuario();
+    Funcionario fLogado = new Funcionario();
     
     try {
         // Página Requisitada
@@ -18,9 +18,9 @@
         ArrayList<String> minhas_paginas = new ArrayList<String>();
         minhas_paginas.add("index.jsp");// Página index acessado por todos os perfis
         
-        uLogado = (Usuario) session.getAttribute("usuario");        
-        ArrayList<Menu> menusDoUsuario = uLogado.getPerfil().getMenus();
-        for(Menu mu:menusDoUsuario) {
+        fLogado = (Funcionario) session.getAttribute("funcionario_logado");        
+        ArrayList<Menu> menusDoFuncionario = fLogado.getPerfil().getMenus();
+        for(Menu mu:menusDoFuncionario) {
                 minhas_paginas.add(mu.getLink());
                 
                 if(mu.getLink().contains("listar_")){
@@ -30,7 +30,7 @@
 <%    
                 }
         }
-        out.print(" ("+uLogado.getNome() + ") <a href='sair.jsp'>Sair</a> ");
+        out.print(" ("+fLogado.getNome() + ") <a href='sair.jsp'>Sair</a> ");
         
         
         if(!minhas_paginas.contains(pagina)){

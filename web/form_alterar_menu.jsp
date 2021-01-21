@@ -1,7 +1,7 @@
 <%-- 
     Document   : form_alterar_menu.jsp
     Created on : 20/12/2020, 21:58:17
-    Author     : francisco
+    Author     : Grupo 2
 --%>
 
 <%@page import="model.MenuDAO"%>

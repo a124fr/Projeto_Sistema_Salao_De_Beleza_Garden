@@ -1,17 +1,17 @@
 <%-- 
     Document   : listar_usuario
     Created on : 17/12/2020, 22:17:18
-    Author     : francisco
+    Author     : Grupo 2
 --%>
-<%@page import="model.UsuarioDAO"%>
-<%@page import="model.Usuario"%>
+<%@page import="model.FuncionarioDAO"%>
+<%@page import="model.Funcionario"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    ArrayList<Usuario> lista = new ArrayList<Usuario>();
+    ArrayList<Funcionario> lista = new ArrayList<Funcionario>();
     try {
-        UsuarioDAO uDAO = new UsuarioDAO();
-        lista = uDAO.listar();
+        FuncionarioDAO fDAO = new FuncionarioDAO();
+        lista = fDAO.listar();
     }catch(Exception e) {
         out.println("ERRO: " + e);
     }
@@ -21,18 +21,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de Usuario</title>
+        <title>Lista de Funcionários</title>
         <script>
             function excluir(id,nome) {
-                if( confirm('Deseja realmente excluir o Usuario ' + nome + '?') ) {
-                    window.open("excluir_usuario.do?id="+id, "_self");
+                if( confirm('Deseja realmente excluir o Funcionario ' + nome + '?') ) {
+                    window.open("excluir_funcionario.do?id="+id, "_self");
                 }
             }
         </script>
     </head>
     <body>
         <%@include  file="banner.jsp" %>
-        <h1>Lista de Usuario <a href="form_inserir_usuario.jsp"><img src="assets/images/add.png" /></a> </h1>
+        <h1>Lista de Funcionários <a href="form_inserir_funcionario.jsp"><img src="assets/images/add.png" /></a> </h1>
         <table>
             <thead>
                 <tr>
@@ -46,30 +46,30 @@
             </thead>
             <tbody>
             <%
-                for(Usuario u:lista) {
+                for(Funcionario f:lista) {
             %>
                 <tr>
-                    <td><%=u.getId() %></td>
-                    <td><%=u.getNome() %></td>
-                    <td><%=u.getLogin() %></td>
+                    <td><%=f.getId() %></td>
+                    <td><%=f.getNome() %></td>
+                    <td><%=f.getLogin() %></td>
                     <td>
                         <%
-                           if( u.getSituacao().equals("Ok") ) {
+                           if( f.getSituacao().equals("Ok") ) {
                         %>
-                        <a href="gerenciar_situacao_usuario.do?id=<%=u.getId() %>&op=0"><img src="assets/images/ok.png" /></a>
+                        <a href="gerenciar_situacao_funcionario.do?id=<%=f.getId() %>&op=0"><img src="assets/images/ok.png" /></a>
                         <%
                            } else {
                         %>
-                            <a href="gerenciar_situacao_usuario.do?id=<%=u.getId() %>&op=1"><img src="assets/images/nok.png" /></a>
+                            <a href="gerenciar_situacao_funcionario.do?id=<%=f.getId() %>&op=1"><img src="assets/images/nok.png" /></a>
                         <%       
                            }
                         
                         %>                    
                     </td>
-                    <td><%=u.getPerfil().getNome() %></td>
+                    <td><%=f.getPerfil().getNome() %></td>
                     <td>
-                        <a href="form_alterar_usuario.jsp?id=<%=u.getId() %>"><img src="assets/images/edit.png" /></a>
-                        <a href="#" onclick="excluir(<%=u.getId() %>, '<%=u.getNome() %>');"><img src="assets/images/delete.png" /></a>
+                        <a href="form_alterar_funcionario.jsp?id=<%=f.getId() %>"><img src="assets/images/edit.png" /></a>
+                        <a href="#" onclick="excluir(<%=f.getId() %>, '<%=f.getNome() %>');"><img src="assets/images/delete.png" /></a>
                     </td>
                 </tr>
             <%

@@ -4,12 +4,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class UsuarioDAO extends DataBaseDAO {
+public class FuncionarioDAO extends DataBaseDAO {
 
-    public ArrayList<Usuario> listar() throws Exception {
-        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    public ArrayList<Funcionario> listar() throws Exception {
+        ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 
-        String sql = "SELECT * FROM usuario";
+        String sql = "SELECT * FROM funcionario";
         this.conectar();
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
@@ -17,49 +17,49 @@ public class UsuarioDAO extends DataBaseDAO {
         PerfilDAO pDAO = new PerfilDAO();
         
         while (rs.next()) {
-            Usuario u = new Usuario();
-            u.setId(rs.getInt("id"));
-            u.setNome(rs.getString("nome"));
-            u.setLogin(rs.getString("login"));
-            u.setSenha(rs.getString("senha"));
-            u.setSituacao(rs.getString("situacao"));
-            u.setPerfil(pDAO.carregarPorId(rs.getInt("id_perfil")));
+            Funcionario f = new Funcionario();
+            f.setId(rs.getInt("id"));
+            f.setNome(rs.getString("nome_completo"));
+            f.setLogin(rs.getString("email"));
+            f.setSenha(rs.getString("senha"));
+            f.setSituacao(rs.getString("situacao"));
+            f.setPerfil(pDAO.carregarPorId(rs.getInt("id_perfil")));
             
-            usuarios.add(u);
+            funcionarios.add(f);
         }
         
         this.desconectar();
-        return usuarios;
+        return funcionarios;
     }
 
-    public Usuario carregarPorId(int id) throws Exception {
-        Usuario usuario = new Usuario();
+    public Funcionario carregarPorId(int id) throws Exception {
+        Funcionario funcionario = new Funcionario();
         
-        String sql = "SELECT * FROM usuario WHERE id = ?";
+        String sql = "SELECT * FROM funcionario WHERE id = ?";
         this.conectar();
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
         
         if(rs.next()) {
-            usuario.setId(rs.getInt("id"));
-            usuario.setNome(rs.getString("nome"));
-            usuario.setLogin(rs.getString("login"));
-            usuario.setSenha(rs.getString("senha"));
-            usuario.setSituacao(rs.getString("situacao"));
+            funcionario.setId(rs.getInt("id"));
+            funcionario.setNome(rs.getString("nome_completo"));
+            funcionario.setLogin(rs.getString("email"));
+            funcionario.setSenha(rs.getString("senha"));
+            funcionario.setSituacao(rs.getString("situacao"));
             
             PerfilDAO pDAO = new PerfilDAO();
-            usuario.setPerfil(pDAO.carregarPorId(rs.getInt("id_perfil")));
+            funcionario.setPerfil(pDAO.carregarPorId(rs.getInt("id_perfil")));
         }
         
         this.desconectar();
-        return usuario;
+        return funcionario;
     }
     
-    public Usuario logar(String login, String senha) throws Exception {
-        Usuario usuario = new Usuario();
+    public Funcionario logar(String login, String senha) throws Exception {
+        Funcionario funcionario = new Funcionario();
         
-        String sql = "SELECT * FROM usuario WHERE situacao = 'Ok' AND login = ?";
+        String sql = "SELECT * FROM funcionario WHERE situacao = 'Ok' AND email = ?";
         this.conectar();
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, login);
@@ -67,23 +67,23 @@ public class UsuarioDAO extends DataBaseDAO {
         
         if(rs.next()) {            
             if(senha.equals(rs.getString("senha"))){
-                usuario.setId(rs.getInt("id"));
-                usuario.setNome(rs.getString("nome"));
-                usuario.setLogin(rs.getString("login"));
-                usuario.setSenha(rs.getString("senha"));
-                usuario.setSituacao(rs.getString("situacao"));
+                funcionario.setId(rs.getInt("id"));
+                funcionario.setNome(rs.getString("nome_completo"));
+                funcionario.setLogin(rs.getString("email"));
+                funcionario.setSenha(rs.getString("senha"));
+                funcionario.setSituacao(rs.getString("situacao"));
 
                 PerfilDAO pDAO = new PerfilDAO();
-                usuario.setPerfil(pDAO.carregarPorId(rs.getInt("id_perfil")));
+                funcionario.setPerfil(pDAO.carregarPorId(rs.getInt("id_perfil")));
             }            
         }
         
         this.desconectar();
-        return usuario;
+        return funcionario;
     }
 
-    public void inserir(Usuario u) throws Exception {
-        String sql = "INSERT INTO usuario (nome, login, senha, situacao, id_perfil) VALUES (?,?,?,?,?)";
+    public void inserir(Funcionario u) throws Exception {
+        String sql = "INSERT INTO funcionario (nome, login, senha, situacao, id_perfil) VALUES (?,?,?,?,?)";
         this.conectar();
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, u.getNome());
@@ -95,8 +95,8 @@ public class UsuarioDAO extends DataBaseDAO {
         this.desconectar();
     }
 
-    public void alterar(Usuario u) throws Exception {
-        String sql = "UPDATE usuario SET nome = ?, login = ?, senha = ?, id_perfil = ? WHERE id = ?";
+    public void alterar(Funcionario u) throws Exception {
+        String sql = "UPDATE funcionario SET nome = ?, login = ?, senha = ?, id_perfil = ? WHERE id = ?";
         this.conectar();
         PreparedStatement ps = conn.prepareStatement(sql);        
         ps.setString(1, u.getNome());
@@ -109,7 +109,7 @@ public class UsuarioDAO extends DataBaseDAO {
     }
     
     public void alterarSituacao(int id, int op) throws Exception {
-        String sql = "UPDATE usuario SET situacao = ? WHERE id = ?";
+        String sql = "UPDATE funcionario SET situacao = ? WHERE id = ?";
         this.conectar();
         PreparedStatement ps = conn.prepareStatement(sql);        
         
