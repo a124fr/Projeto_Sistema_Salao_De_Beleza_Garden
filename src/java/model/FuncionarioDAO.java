@@ -19,10 +19,16 @@ public class FuncionarioDAO extends DataBaseDAO {
         while (rs.next()) {
             Funcionario f = new Funcionario();
             f.setId(rs.getInt("id"));
-            f.setNome(rs.getString("nome_completo"));
-            f.setLogin(rs.getString("email"));
+            f.setNomeCompleto(rs.getString("nome_completo"));
+            f.setEmail(rs.getString("email"));
             f.setSenha(rs.getString("senha"));
-            f.setSituacao(rs.getString("situacao"));
+            f.setSituacao(rs.getString("situacao"));            
+            f.setTelefoneContato(rs.getString("telefone_contato"));
+            f.setTelefoneWhatsapp(rs.getString("telefone_whatszapp"));            
+            f.setCpf(rs.getString("cpf"));
+            f.setCep(rs.getString("cep"));
+            f.setEndereco(rs.getString("endereco"));
+            
             f.setPerfil(pDAO.carregarPorId(rs.getInt("id_perfil")));
             
             funcionarios.add(f);
@@ -43,10 +49,15 @@ public class FuncionarioDAO extends DataBaseDAO {
         
         if(rs.next()) {
             funcionario.setId(rs.getInt("id"));
-            funcionario.setNome(rs.getString("nome_completo"));
-            funcionario.setLogin(rs.getString("email"));
+            funcionario.setNomeCompleto(rs.getString("nome_completo"));
+            funcionario.setEmail(rs.getString("email"));
             funcionario.setSenha(rs.getString("senha"));
             funcionario.setSituacao(rs.getString("situacao"));
+            funcionario.setTelefoneContato(rs.getString("telefone_contato"));
+            funcionario.setTelefoneWhatsapp(rs.getString("telefone_whatszapp"));            
+            funcionario.setCpf(rs.getString("cpf"));
+            funcionario.setCep(rs.getString("cep"));
+            funcionario.setEndereco(rs.getString("endereco"));
             
             PerfilDAO pDAO = new PerfilDAO();
             funcionario.setPerfil(pDAO.carregarPorId(rs.getInt("id_perfil")));
@@ -68,8 +79,8 @@ public class FuncionarioDAO extends DataBaseDAO {
         if(rs.next()) {            
             if(senha.equals(rs.getString("senha"))){
                 funcionario.setId(rs.getInt("id"));
-                funcionario.setNome(rs.getString("nome_completo"));
-                funcionario.setLogin(rs.getString("email"));
+                funcionario.setNomeCompleto(rs.getString("nome_completo"));
+                funcionario.setEmail(rs.getString("email"));
                 funcionario.setSenha(rs.getString("senha"));
                 funcionario.setSituacao(rs.getString("situacao"));
 
@@ -82,28 +93,40 @@ public class FuncionarioDAO extends DataBaseDAO {
         return funcionario;
     }
 
-    public void inserir(Funcionario u) throws Exception {
-        String sql = "INSERT INTO funcionario (nome, login, senha, situacao, id_perfil) VALUES (?,?,?,?,?)";
+    public void inserir(Funcionario f) throws Exception {
+        String sql = "INSERT INTO funcionario (nome_completo, cpf, email, telefone_contato, "
+                + "telefone_whatszapp, senha, situacao, endereco, cep, id_perfil) VALUES (?,?,?,?,?,?,?,?,?,?)";
         this.conectar();
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, u.getNome());
-        ps.setString(2, u.getLogin());
-        ps.setString(3, u.getSenha());
-        ps.setString(4, "Ok");
-        ps.setInt(5, u.getPerfil().getId());
+        ps.setString(1, f.getNomeCompleto());
+        ps.setString(2, f.getCpf());
+        ps.setString(3, f.getEmail());
+        ps.setString(4, f.getTelefoneContato());
+        ps.setString(5, f.getTelefoneWhatsapp());
+        ps.setString(6, f.getSenha());
+        ps.setString(7, "Ok");
+        ps.setString(8, f.getEndereco());
+        ps.setString(9, f.getCep());
+        ps.setInt(10, f.getPerfil().getId());
         ps.execute();
         this.desconectar();
     }
 
-    public void alterar(Funcionario u) throws Exception {
-        String sql = "UPDATE funcionario SET nome = ?, login = ?, senha = ?, id_perfil = ? WHERE id = ?";
+    public void alterar(Funcionario f) throws Exception {
+        String sql = "UPDATE funcionario SET nome_completo = ?, cpf = ?, email = ?, telefone_contato = ?, "
+                + "telefone_whatszapp = ?, senha = ?, endereco = ?, cep = ?, id_perfil = ? WHERE id = ?";
         this.conectar();
         PreparedStatement ps = conn.prepareStatement(sql);        
-        ps.setString(1, u.getNome());
-        ps.setString(2, u.getLogin());
-        ps.setString(3, u.getSenha());        
-        ps.setInt(4, u.getPerfil().getId());
-        ps.setInt(5, u.getId());
+        ps.setString(1, f.getNomeCompleto());
+        ps.setString(2, f.getCpf());
+        ps.setString(3, f.getEmail());
+        ps.setString(4, f.getTelefoneContato());
+        ps.setString(5, f.getTelefoneWhatsapp());
+        ps.setString(6, f.getSenha());        
+        ps.setString(7, f.getEndereco());
+        ps.setString(8, f.getCep());
+        ps.setInt(9, f.getPerfil().getId());
+        ps.setInt(10, f.getId());
         ps.execute();
         this.desconectar();
     }
@@ -125,7 +148,7 @@ public class FuncionarioDAO extends DataBaseDAO {
     }
 
     public void excluir(int id) throws Exception {
-        String sql = "DELETE FROM usuario WHERE id = ?";
+        String sql = "DELETE FROM funcionario WHERE id = ?";
         this.conectar();
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, id);

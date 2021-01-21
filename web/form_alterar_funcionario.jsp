@@ -1,5 +1,5 @@
 <%-- 
-    Document   : form_alterar_usuario
+    Document   : form_alterar_funcionario
     Created on : 17/12/2020, 18:59:11
     Author     : Grupo 2
 --%>
@@ -37,12 +37,23 @@
         <form name="alterar_usuario" method="POST" action="alterar_funcionario.do">
             <input type="hidden" name="id" value="<%=f.getId() %>" />
             ID: <%=f.getId() %> <br/>
+            
             Nome:<input type="text" name="nome" value="<%=f.getNome() %>" required /><br/>
             
-            Login:<input type="text" name="login" value="<%=f.getLogin() %>" required /><br/> 
+            Email:<input type="text" name="email" value="<%=f.getEmail() %>" required /><br/> 
             
+            CPF: <input type="text" name="cpf" value="<%=f.getCpf() %>" required /><br/> 
+            
+            Telefone Contato: <input type="text" name="tel_contato" value="<%=f.getTelefoneContato() %>"  required /><br/> 
+            
+            Telefone Whatsapp: <input type="text" name="tel_whatsapp" value="<%=f.getTelefoneWhatsapp() %>" required /><br/> 
+                                    
             Senha:<input type="password" name="senha" value="<%=f.getSenha() %>" required /><br/>
             
+            endereco: <textarea name="endereco"><%=f.getEndereco() %></textarea><br/>
+            
+            cep: <input type="text" name="cep" value="<%=f.getCep() %>" /><br/> 
+                        
             Perfil: <select name="id_perfil" required>
                         <option value=""> selecione </option>
                         <%

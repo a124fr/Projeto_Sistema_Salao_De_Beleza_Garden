@@ -6,9 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.FuncionarioDAO;
+import model.ClienteDAO;
 
-public class ExcluirFuncionario extends HttpServlet {
+public class ExcluirCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,20 +27,20 @@ public class ExcluirFuncionario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ExcluirFuncionario</title>");            
+            out.println("<title>Servlet ExcluirCliente</title>");            
             out.println("</head>");
             out.println("<body>");
             
-            try {
-                int id = Integer.parseInt(request.getParameter("id"));
+            try{
+                int id = Integer.parseInt(request.getParameter("id"));                
+
+                ClienteDAO cDAO = new ClienteDAO();
+                cDAO.excluir(id);
                 
-                FuncionarioDAO fDAO = new FuncionarioDAO();
-                fDAO.excluir(id);
-                
-                response.sendRedirect("listar_funcionario.jsp");
-            } catch (Exception e) {
+                response.sendRedirect("listar_cliente.jsp");                
+            }catch(Exception e) {
                 out.println("ERRO: " + e);
-            }            
+            }
             
             out.println("</body>");
             out.println("</html>");

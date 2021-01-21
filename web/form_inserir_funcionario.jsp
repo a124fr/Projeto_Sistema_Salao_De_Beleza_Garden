@@ -1,5 +1,5 @@
 <%-- 
-    Document   : form_inserir_usuario
+    Document   : form_inserir_funcionario
     Created on : 17/12/2020, 18:59:11
     Author     : Grupo 2
 --%>
@@ -21,17 +21,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Novo Usuário</title>
+        <title>Novo Funcionário</title>
     </head>
     <body>
         <%@include  file="banner.jsp" %>
-        <h1>Novo Usuário</h1>
-        <form name="novo_usuario" method="POST" action="inserir_funcionario.do">
-            Nome:<input type="text" name="nome" required /><br/>
+        <h1>Novo Funcionário</h1>
+        <form name="novo_funcionario" method="POST" action="inserir_funcionario.do">
+            Nome Completo:<input type="text" name="nome" required /><br/>
             
-            Login:<input type="text" name="login" required /><br/> 
+            Email:<input type="text" name="email" required /><br/> 
             
+            CPF: <input type="text" name="cpf" required /><br/> 
+            
+            Telefone Contato: <input type="text" name="tel_contato" required /><br/> 
+            
+            Telefone Whatsapp: <input type="text" name="tel_whatsapp" required /><br/> 
+                                    
             Senha:<input type="password" name="senha" required /><br/>
+            
+            endereco: <textarea name="endereco"></textarea><br/>
+            
+            cep: <input type="text" name="cep" /><br/> 
             
             Perfil: <select name="id_perfil" required>
                         <option value=""> selecione </option>

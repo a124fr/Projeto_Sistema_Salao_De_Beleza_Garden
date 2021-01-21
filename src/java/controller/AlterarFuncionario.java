@@ -6,9 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Funcionario;
 import model.FuncionarioDAO;
+import model.Perfil;
 
-public class ExcluirFuncionario extends HttpServlet {
+public class AlterarFuncionario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,21 +29,45 @@ public class ExcluirFuncionario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ExcluirFuncionario</title>");            
+            out.println("<title>Servlet AlterarFuncionario</title>");            
             out.println("</head>");
             out.println("<body>");
-            
-            try {
+
+             try {
                 int id = Integer.parseInt(request.getParameter("id"));
+                String nome = request.getParameter("nome");
+                String email = request.getParameter("email");
+                String cpf = request.getParameter("cpf");
+                String tel_contato = request.getParameter("tel_contato");
+                String tel_whatsapp = request.getParameter("tel_whatsapp");                
+                String senha = request.getParameter("senha");
+                String endereco = request.getParameter("endereco");
+                String cep = request.getParameter("cep");
+                int id_perfil = Integer.parseInt(request.getParameter("id_perfil"));
+                
+                Perfil p = new Perfil();
+                p.setId(id_perfil);
+                
+                Funcionario f = new Funcionario();
+                f.setId(id);
+                f.setNomeCompleto(nome);
+                f.setEmail(email);                
+                f.setCpf(cpf);
+                f.setTelefoneContato(tel_contato);
+                f.setTelefoneWhatsapp(tel_whatsapp);                
+                f.setSenha(senha);
+                f.setEndereco(endereco);
+                f.setCep(cep);
+                f.setPerfil(p);
                 
                 FuncionarioDAO fDAO = new FuncionarioDAO();
-                fDAO.excluir(id);
+                fDAO.alterar(f);
                 
-                response.sendRedirect("listar_funcionario.jsp");
+                response.sendRedirect("listar_funcionario.jsp");                
             } catch (Exception e) {
                 out.println("ERRO: " + e);
             }            
-            
+                                    
             out.println("</body>");
             out.println("</html>");
         }

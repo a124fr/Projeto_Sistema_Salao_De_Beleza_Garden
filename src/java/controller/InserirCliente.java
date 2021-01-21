@@ -6,9 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.FuncionarioDAO;
+import model.Cliente;
+import model.ClienteDAO;
 
-public class ExcluirFuncionario extends HttpServlet {
+public class InserirCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,17 +28,32 @@ public class ExcluirFuncionario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ExcluirFuncionario</title>");            
+            out.println("<title>Servlet InserirCliente</title>");            
             out.println("</head>");
             out.println("<body>");
             
             try {
-                int id = Integer.parseInt(request.getParameter("id"));
+                String nome = request.getParameter("nome_completo");
+                String email = request.getParameter("email");
+                String cpf = request.getParameter("cpf");
+                String tel_contato = request.getParameter("tel_contato");
+                String tel_whatsapp = request.getParameter("tel_whatsapp");
+                String endereco = request.getParameter("endereco");
+                String cep = request.getParameter("cep");
+                                
+                Cliente c = new Cliente();                
+                c.setNomeCompleto(nome);
+                c.setEmail(email);                
+                c.setCpf(cpf);
+                c.setTelefoneContato(tel_contato);
+                c.setTelefoneWhatsapp(tel_whatsapp);
+                c.setEndereco(endereco);
+                c.setCep(cep);
+                                
+                ClienteDAO cDAO = new ClienteDAO();
+                cDAO.inserir(c);
                 
-                FuncionarioDAO fDAO = new FuncionarioDAO();
-                fDAO.excluir(id);
-                
-                response.sendRedirect("listar_funcionario.jsp");
+                response.sendRedirect("listar_cliente.jsp");                
             } catch (Exception e) {
                 out.println("ERRO: " + e);
             }            

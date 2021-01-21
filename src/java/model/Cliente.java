@@ -1,26 +1,23 @@
 package model;
 
-public class Funcionario {
+public class Cliente {
     private int id;
     private String nomeCompleto;
-    private String email;    
-    private String senha;
-    private String situacao;
-    private Perfil perfil;
     private String cpf;
+    private String email;
     private String telefoneContato;
-    private String telefoneWhatsapp;    
+    private String telefoneWhatsapp;   
     private String endereco;
     private String cep;
 
     public int getId() {
         return id;
     }
-
+    
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public String getNomeCompleto() {
         return nomeCompleto;
     }
@@ -35,39 +32,7 @@ public class Funcionario {
             indice = this.nomeCompleto.length();
         }        
         String nome = this.nomeCompleto.substring(0, indice);
-        return nome;        
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(String situacao) {
-        this.situacao = situacao;
-    }
-
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
+        return nome; 
     }
 
     public String getCpf() {
@@ -76,6 +41,14 @@ public class Funcionario {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTelefoneContato() {
@@ -93,15 +66,15 @@ public class Funcionario {
     public void setTelefoneWhatsapp(String telefoneWhatsapp) {
         this.telefoneWhatsapp = telefoneWhatsapp;
     }
-
+    
     public String getEndereco() {
-        return endereco;
+        return this.endereco;
     }
-
+    
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
+    
     public String getCep() {
         return cep;
     }

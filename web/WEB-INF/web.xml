@@ -48,6 +48,22 @@
         <servlet-name>ExcluirFuncionario</servlet-name>
         <servlet-class>controller.ExcluirFuncionario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarFuncionario</servlet-name>
+        <servlet-class>controller.AlterarFuncionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InserirCliente</servlet-name>
+        <servlet-class>controller.InserirCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <servlet-class>controller.ExcluirCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarCliente</servlet-name>
+        <servlet-class>controller.AlterarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Teste</servlet-name>
         <url-pattern>/Teste</url-pattern>
@@ -95,6 +111,22 @@
     <servlet-mapping>
         <servlet-name>ExcluirFuncionario</servlet-name>
         <url-pattern>/excluir_funcionario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarFuncionario</servlet-name>
+        <url-pattern>/alterar_funcionario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirCliente</servlet-name>
+        <url-pattern>/inserir_cliente.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <url-pattern>/excluir_cliente.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarCliente</servlet-name>
+        <url-pattern>/alterar_cliente.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

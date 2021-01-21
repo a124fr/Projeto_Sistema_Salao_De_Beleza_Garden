@@ -1,5 +1,5 @@
 <%-- 
-    Document   : listar_usuario
+    Document   : listar_funcionario
     Created on : 17/12/2020, 22:17:18
     Author     : Grupo 2
 --%>
@@ -51,7 +51,7 @@
                 <tr>
                     <td><%=f.getId() %></td>
                     <td><%=f.getNome() %></td>
-                    <td><%=f.getLogin() %></td>
+                    <td><%=f.getEmail()%></td>
                     <td>
                         <%
                            if( f.getSituacao().equals("Ok") ) {
