@@ -121,12 +121,14 @@ public class AgendaDAO extends DataBaseDAO {
     }
     
     public void pagar(Agenda a) throws Exception {
-        String sql = "UPDATE agenda SET data_pagamento = ?, status_agenda = ? WHERE id = ?";
+        String sql = "UPDATE agenda SET desconto = ?, valor_pago = ?, data_pagamento = ?, status_agenda = ? WHERE id = ?";
         this.conectar();
         PreparedStatement ps = this.conn.prepareStatement(sql);        
-        ps.setString(1, a.getDataPagamento());        
-        ps.setString(2, "Pago");
-        ps.setInt(3, a.getId());
+        ps.setDouble(1, a.getDesconto());
+        ps.setDouble(2, a.getValorPago());
+        ps.setString(3, a.getDataPagamento());        
+        ps.setString(4, "Pago");
+        ps.setInt(5, a.getId());
         ps.execute();
         this.desconectar();
     }

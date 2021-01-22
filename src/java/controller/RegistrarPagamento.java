@@ -39,12 +39,16 @@ public class RegistrarPagamento extends HttpServlet {
             
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
+                double desconto = Double.parseDouble(request.getParameter("desconto"));
+                double valor_total = Double.parseDouble(request.getParameter("valor_total"));
                 Date dataPagemento = new Date(); 
                 
                 Agenda a = new Agenda();
                 a.setId(id);                
                 a.setDataPagamento(inputFormat.format(dataPagemento) );
-                                
+                a.setDesconto(desconto);
+                a.setValorPago(valor_total);
+                
                 AgendaDAO aDAO = new AgendaDAO();
                 aDAO.pagar(a);
                 

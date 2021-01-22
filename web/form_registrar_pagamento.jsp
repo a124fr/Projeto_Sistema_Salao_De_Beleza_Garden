@@ -28,10 +28,25 @@
         <h1>Registo de Pagamento</h1>
         <form name="registrar_pagamento" method="POST" action="registrar_pagamento.do">
             <input type="hidden" name="id" value="<%=a.getId() %>" />
-            ID: <%=a.getId() %> <br/>
+            ID Agenda: <%=a.getId() %> <br/>
             
+            Data de Agendamento: <%=a.getDataAgendamento() %><br/>
             
+            Data de Atendimento:  <%=a.getDataAtendimento() %><br/>
             
+            Funcionário: <%=a.getFuncionario().getNomeCompleto() %><br/>
+            
+            Procedimento: <%=a.getProcedimento().getTitulo() %> <br/>
+            
+            Cliente: <%=a.getCliente().getNomeCompleto() %> <br/>
+            
+            Status: <%=a.getStatus() %> <br/>
+            
+            Desconto: <input type="number" name="desconto" /> <br/>
+                        
+            Valor Total: <input type="number" name="valor_total" value="<%=a.getProcedimento().getValor() %>" ><br/>
+            
+            <input type="submit" value="Salvar" /> | <a href="listar_agenda.jsp">Voltar</a>            
         </form>
     </body>
 </html>
