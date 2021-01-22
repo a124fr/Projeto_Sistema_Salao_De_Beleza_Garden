@@ -76,6 +76,18 @@
         <servlet-name>AlterarProcedimento</servlet-name>
         <servlet-class>controller.AlterarProcedimento</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AtenderAgenda</servlet-name>
+        <servlet-class>controller.AtenderAgenda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CancelarAgenda</servlet-name>
+        <servlet-class>controller.CancelarAgenda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarPagamento</servlet-name>
+        <servlet-class>controller.RegistrarPagamento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Teste</servlet-name>
         <url-pattern>/Teste</url-pattern>
@@ -151,6 +163,18 @@
     <servlet-mapping>
         <servlet-name>AlterarProcedimento</servlet-name>
         <url-pattern>/alterar_procedimento.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtenderAgenda</servlet-name>
+        <url-pattern>/atender_agenda.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelarAgenda</servlet-name>
+        <url-pattern>/cancelar_agenda.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarPagamento</servlet-name>
+        <url-pattern>/registrar_pagamento.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

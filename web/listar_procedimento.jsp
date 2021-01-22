@@ -22,7 +22,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista Procedimentos</title>
+        <title>Lista de Procedimentos</title>
         <script>
             function excluir(id,titulo) {
                 if( confirm('Deseja realmente excluir o procedimento ' + titulo + '?') ) {
@@ -33,7 +33,7 @@
     </head>
     <body>
         <%@include  file="banner.jsp" %>
-        <h1>Lista Procedimentos <a href="form_inserir_procedimento.jsp"><img src="assets/images/add.png" /></a> </h1>
+        <h1>Lista de Procedimentos <a href="form_inserir_procedimento.jsp"><img src="assets/images/add.png" /></a> </h1>
         <table>
             <thead>
                 <tr>
