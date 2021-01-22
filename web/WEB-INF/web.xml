@@ -64,6 +64,18 @@
         <servlet-name>AlterarCliente</servlet-name>
         <servlet-class>controller.AlterarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirProcedimento</servlet-name>
+        <servlet-class>controller.ExcluirProcedimento</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InserirProcedimento</servlet-name>
+        <servlet-class>controller.InserirProcedimento</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarProcedimento</servlet-name>
+        <servlet-class>controller.AlterarProcedimento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Teste</servlet-name>
         <url-pattern>/Teste</url-pattern>
@@ -127,6 +139,18 @@
     <servlet-mapping>
         <servlet-name>AlterarCliente</servlet-name>
         <url-pattern>/alterar_cliente.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirProcedimento</servlet-name>
+        <url-pattern>/excluir_procedimento.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirProcedimento</servlet-name>
+        <url-pattern>/inserir_procedimento.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarProcedimento</servlet-name>
+        <url-pattern>/alterar_procedimento.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
