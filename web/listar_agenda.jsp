@@ -36,13 +36,7 @@
                     window.open("atender_agenda.do?id="+id, "_self");
                 }
             }
-            
-            /*function pagar(id) {
-                if( confirm('Deseja realizar o pagamento da Agenda - ID: ' + id + '?') ) {
-                    window.open("registrar_pagamento.do?id="+id, "_self");
-                }
-            }*/
-            
+                        
             function cancelar(id) {
                 if( confirm('Deseja realizar o cancelamento da Agenda - ID: ' + id + '?') ) {
                     window.open("cancelar_agenda.do?id="+id, "_self");
@@ -53,7 +47,13 @@
     <body>        
         <%@include  file="banner.jsp" %>
         <h1>Lista de Agenda</h1>
-        <button>Consultar</button> | <button>Agendar</button> <br/>
+        
+        <a href="form_consultar_agenda.jsp?cpf=">Consultar
+            <!-- img src="assets/images/delete.png" / -->
+        </a> |
+        
+        
+        | <button>Agendar</button> <br/>
                                         
         <table>
             <thead>
@@ -66,7 +66,7 @@
                     <th>Funcionário</th>
                     <th>Cliente</th>
                     <th>Procedimento</th>
-                    <th>Status</th>
+                    <th>Status</th>                    
                     <th>Opções</th>
                 </tr>
             </thead>
@@ -88,17 +88,27 @@
                     <td><%=a.getCliente().getNomeCompleto() %></td>
                     <td><%=a.getProcedimento().getTitulo() %></td>
                     <td><%=a.getStatus() %></td>
-                    <td>
-                       <a href="#" onclick="atender(<%=a.getId() %>);">Atender
-                           <!-- img src="assets/images/delete.png" / -->
-                       </a> |                       
-                       <a href="#" onclick="cancelar(<%=a.getId() %>);">Cancelar
-                           <!-- img src="assets/images/delete.png" / -->
-                       </a> |
-                       <a href="form_registrar_pagamento.jsp?id=<%=a.getId() %>">Pagar
-                           <!-- img src="assets/images/delete.png" / -->
-                       </a>
-                    </td>
+                    <td align="center">
+                       
+                        <% if(a.getStatus().equals("Marcado")) { %> 
+                            <a href="#" onclick="atender(<%=a.getId() %>);">Atender
+                                <!-- img src="assets/images/delete.png" / -->
+                            </a> |                       
+                            <a href="#" onclick="cancelar(<%=a.getId() %>);">Cancelar
+                                <!-- img src="assets/images/delete.png" / -->
+                            </a> |
+                            <a href="form_registrar_pagamento.jsp?id=<%=a.getId() %>">Pagar
+                                <!-- img src="assets/images/delete.png" / -->
+                            </a>
+                       
+                       <% }else if(a.getStatus().equals("EmAtendimento")) {%>
+                            <a href="form_registrar_pagamento.jsp?id=<%=a.getId() %>">Pagar
+                                <!-- img src="assets/images/delete.png" / -->
+                            </a>                                
+                       <% } else { %>                                               
+                            <span> - </span>
+                       <% } %>
+                       </td>
                 </tr>
                 <% } %>
             </tbody>

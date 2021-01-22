@@ -62,6 +62,42 @@ public class AgendaDAO extends DataBaseDAO {
         return lista;
     }
     
+    public ArrayList<Agenda> consultarAgendaPorCpfCliente(String cpfCliente) throws Exception {
+        ArrayList<Agenda> lista = new ArrayList<Agenda>();
+        String sql = "SELECT a.id, a.data_agendamento, a.data_atendimento, a.data_pagamento, a.data_cancelamento, a.id_funcionario, a.id_procedimento, a.id_cliente, a.status_agenda, a.desconto, a.valor_pago FROM agenda a inner join cliente c on a.id_cliente = c.id WHERE  c.cpf = ?";        
+        this.conectar();
+        PreparedStatement ps = this.conn.prepareStatement(sql);
+        ps.setString(1, cpfCliente);
+        ResultSet rs = ps.executeQuery();
+        
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        ClienteDAO clienteDAO = new ClienteDAO();
+        ProcedimentoDAO procedimentoDAO = new ProcedimentoDAO();
+        
+        DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
+        DateFormat outputFormat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+        
+        while(rs.next()) {
+            Agenda a = new Agenda();
+            a.setId(rs.getInt("id"));
+            a.setDataAgendamento( rs.getString("data_agendamento") );            
+            a.setDataAtendimento( rs.getString("data_atendimento") );
+            a.setDataCancelamento( rs.getString("data_cancelamento") );
+            a.setDataPagamento( rs.getString("data_pagamento") );                        
+            a.setFuncionario( funcionarioDAO.carregarPorId( rs.getInt("id_funcionario") ) );
+            a.setCliente( clienteDAO.carregarPorId( rs.getInt("id_cliente")) );
+            a.setProcedimento( procedimentoDAO.carregarPorId( rs.getInt("id_procedimento") ) );            
+            a.setStatus( rs.getString("status_agenda") );
+            a.setDesconto(rs.getDouble("desconto"));
+            a.setValorPago(rs.getDouble("valor_pago"));
+            
+            lista.add(a);
+        }        
+        
+        this.desconectar();        
+        return lista;
+    }
+    
     public Agenda carregarPorId(int id) throws Exception {
         Agenda agenda = new Agenda();
         String sql = 
