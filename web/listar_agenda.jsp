@@ -1,7 +1,7 @@
 <%-- 
     Document   : listar_agenda
     Created on : 22/01/2021, 00:59:05
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 
 <%@page import="java.time.OffsetDateTime"%>

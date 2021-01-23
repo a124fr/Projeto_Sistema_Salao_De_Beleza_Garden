@@ -1,7 +1,7 @@
 <%-- 
     Document   : banner
     Created on : 21/12/2020, 23:58:10
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 
 <%@page import="model.Menu"%>

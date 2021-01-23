@@ -1,7 +1,7 @@
 <%-- 
     Document   : form_consultar_agenda
     Created on : 22/01/2021, 16:15:58
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : listar_menu
     Created on : 17/12/2020, 22:17:18
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 <%@page import="model.MenuDAO"%>
 <%@page import="model.Menu"%>

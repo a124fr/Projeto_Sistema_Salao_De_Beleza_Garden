@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 17/12/2020, 19:53:52
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : form_alterar_cliente
     Created on : 21/01/2021, 15:48:50
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 
 <%@page import="model.ClienteDAO"%>

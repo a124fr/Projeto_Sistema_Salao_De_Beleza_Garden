@@ -1,7 +1,7 @@
 <%-- 
     Document   : form_gerenciar_menu_perfil.jsp
     Created on : 19/12/2020, 23:38:46
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 
 <%@page import="model.Menu"%>

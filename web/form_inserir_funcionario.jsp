@@ -1,7 +1,7 @@
 <%-- 
     Document   : form_inserir_funcionario
     Created on : 17/12/2020, 18:59:11
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 
 <%@page import="model.PerfilDAO"%>

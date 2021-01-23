@@ -1,7 +1,7 @@
 <%-- 
     Document   : form_alterar_procedimento
     Created on : 21/01/2021, 20:23:01
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 
 <%@page import="model.ProcedimentoDAO"%>

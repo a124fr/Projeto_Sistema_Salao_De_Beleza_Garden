@@ -1,7 +1,7 @@
 <%-- 
     Document   : listar_cliente
     Created on : 21/01/2021, 10:15:03
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 
 <%@page import="model.ClienteDAO"%>

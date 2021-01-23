@@ -1,7 +1,7 @@
 <%-- 
     Document   : form_registrar_pagamento
     Created on : 22/01/2021, 14:20:19
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 
 <%@page import="model.AgendaDAO"%>

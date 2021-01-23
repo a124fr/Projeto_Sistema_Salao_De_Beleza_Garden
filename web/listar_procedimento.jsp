@@ -1,7 +1,7 @@
 <%-- 
     Document   : istar_procedimento
     Created on : 21/01/2021, 16:48:33
-    Author     : Grupo 2
+    Author     : Francisco de Assis de Oliveira Silva
 --%>
 
 <%@page import="java.util.ArrayList"%>
